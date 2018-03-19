@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.demo</groupId>
+    <artifactId>client</artifactId>
+    <version>1.x-SNAPSHOT</version>
+
+<!--    <parent>
+        <groupId>com.demo</groupId>
+        <artifactId>market-demo</artifactId>
+        <version>1.x-SNAPSHOT</version>
+    </parent>-->
+
+    <dependencies>
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>product</artifactId>
+            <version>1.x-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <build>
+        <sourceDirectory>src/main/com.demo.client</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <fork>true</fork>
+<!--                    <compilerArgs>
+                        <compilerArg>&#45;&#45;add-exports</compilerArg>
+                        <compilerArg>com.demo.product/com.demo.product.api=com.demo.client</compilerArg>
+                    </compilerArgs>-->
+                    <!--
+                    <executable>/usr/lib/jvm/java-9-oracle</executable>
+                    NEED TO BE SET PROPERLY!!
+                    -->
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>--module-path</argument>
+                        <modulepath/>
+                        <argument>--module</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.demo</groupId>
+    <artifactId>bank</artifactId>
+    <version>1.x-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <build>
+        <!--<sourceDirectory>src/main/java</sourceDirectory>-->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <fork>true</fork>
+                    <!--
+                    <executable>/usr/lib/jvm/java-9-oracle</executable>
+                    NEED TO BE SET PROPERLY!!
+                    -->
+                    <source>9</source>
+                    <target>9</target>
+<!--
+                    <compilerArgs>
+                        &lt;!&ndash; see https://github.com/rzwitserloot/lombok/issues/985 &ndash;&gt;
+                        <arg>-J&#45;&#45;add-opens=-Jjdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=-Jjdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=-Jjdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=-Jjdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=-Jjdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=-Jjdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=-Jjdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=-Jjdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
+                        <arg>-J&#45;&#45;add-opens=-Jjdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                    </compilerArgs>
+-->
+                </configuration>
+
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>--module-path</argument>
+                        <modulepath/>
+                        <argument>--module</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
